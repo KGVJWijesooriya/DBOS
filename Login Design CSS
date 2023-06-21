@@ -1,0 +1,215 @@
+
+@font-face {
+  font-family: "Poor Richard-Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.animaapp.com/PoorRichard-Regular");
+}
+
+.frame-3 {
+  align-items: flex-start;
+  background-color: var(--white);
+  border: 1px none;
+  display: flex;
+  overflow: hidden;
+  width: 1280px;
+}
+
+.hidden,
+.hidden * {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.overlap-group2 {
+  height: 720px;
+  margin-left: -1px;
+  position: relative;
+  width: 1283px;
+}
+
+.rectangle-7 {
+  background: linear-gradient(
+    180deg,
+    rgba(51, 0, 255, 0.38) 0%,
+    rgb(0, 119.68, 136) 100%
+  );
+  left: 1px;
+}
+
+.frame-3 .rectangle {
+  height: 720px;
+  position: absolute;
+  top: 0;
+  width: 1282px;
+}
+
+.unsplash5f-nm-wej4t-aa {
+  height: 720px;
+  left: 1px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 1280px;
+}
+
+.forget-password {
+  height: 17px;
+  left: 569px;
+  position: absolute;
+  top: 436px;
+  width: 139px;
+}
+
+.group-4 {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  height: 76px;
+  left: 550px;
+  min-width: 184px;
+  position: absolute;
+  top: 32px;
+}
+
+.title {
+  color: var(--white);
+  font-family: var(--font-family-poor_richard-regular);
+  font-size: var(--font-size-m);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-bottom: 1px;
+  min-height: 35px;
+  min-width: 98px;
+  white-space: nowrap;
+}
+
+.zondiconsshield {
+  height: 76px;
+  width: 76px;
+}
+
+.rectangle-8 {
+  background-color: #20202073;
+  left: 0;
+}
+
+.welcome {
+  height: 41px;
+  left: 496px;
+  position: absolute;
+  top: 140px;
+  width: 291px;
+}
+
+.group-2 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  left: 395px;
+  min-height: 81px;
+  position: absolute;
+  top: 213px;
+  width: 496px;
+}
+
+.user-container {
+  align-items: center;
+  background-image: url(https://anima-uploads.s3.amazonaws.com/projects/6491b9b76aef5e22ae2569db/releases/6491baa71fd29090accc0529/img/rectangle-1.png);
+  background-size: 100% 100%;
+  display: flex;
+  gap: 12px;
+  height: 53px;
+  margin-left: -2px;
+  min-width: 496px;
+  padding: 11px 13px;
+}
+
+.usernameemail-1 {
+  height: 19px;
+  margin-bottom: 0.16px;
+  width: 139px;
+}
+
+.mdiuser {
+  align-self: flex-end;
+  height: 30px;
+  width: 30px;
+}
+
+.usernameemail {
+  height: 19px;
+  margin-left: 18.14px;
+  margin-top: 3px;
+  width: 145px;
+}
+
+.line-2 {
+  height: 1px;
+  left: 395px;
+  object-fit: cover;
+  position: absolute;
+  top: 618px;
+  width: 492px;
+}
+
+.dont-have-an-account-sign-up {
+  height: 18px;
+  left: 502px;
+  position: absolute;
+  top: 647px;
+  width: 273px;
+}
+
+.group-1 {
+  height: 49px;
+  left: 480px;
+  position: absolute;
+  top: 516px;
+  width: 322px;
+}
+
+.group-3 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  left: 395px;
+  min-height: 80px;
+  position: absolute;
+  top: 323px;
+  width: 496px;
+}
+
+.overlap-group1 {
+  align-items: center;
+  background-image: url(https://anima-uploads.s3.amazonaws.com/projects/6491b9b76aef5e22ae2569db/releases/6491baa71fd29090accc0529/img/rectangle-1.png);
+  background-size: 100% 100%;
+  display: flex;
+  gap: 17px;
+  height: 53px;
+  margin-left: -2px;
+  min-width: 496px;
+  padding: 16px 18px;
+}
+
+.pheye-fill {
+  align-self: flex-end;
+  height: 20px;
+  width: 20px;
+}
+
+.password-1 {
+  height: 13px;
+  margin-top: 0.56px;
+  width: 78px;
+}
+
+.password {
+  height: 13px;
+  margin-left: 18.17px;
+  margin-top: 6px;
+  width: 82px;
+}
