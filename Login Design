@@ -1,0 +1,77 @@
+ <div class="frame-3screen">
+  <div class="overlap-group2">
+    <img
+      class="unsplash5f-nm-wej4t-aa"
+      src="https://anima-uploads.s3.amazonaws.com/projects/6491b9b76aef5e22ae2569db/releases/6491baa71fd29090accc0529/img/unsplash-5fnmwej4taa.png"
+      alt="unsplash:5fNmWej4tAA"
+    />
+    <div class="rectangle-7rectangle"></div>
+    <div class="rectangle-8rectangle"></div>
+    <img
+      class="welcome"
+      src="https://anima-uploads.s3.amazonaws.com/projects/6491b9b76aef5e22ae2569db/releases/6491baa71fd29090accc0529/img/welcome.svg"
+      alt="WELCOME"
+    /><img
+      class="forget-password"
+      src="https://anima-uploads.s3.amazonaws.com/projects/6491b9b76aef5e22ae2569db/releases/6491baa71fd29090accc0529/img/forget-password.png"
+      alt="Forget Password"
+    /><img
+      class="dont-have-an-account-sign-up"
+      src="https://anima-uploads.s3.amazonaws.com/projects/6491b9b76aef5e22ae2569db/releases/6491baa71fd29090accc0529/img/don-t-have-an-account--sign-up.png"
+      alt="Dont have an account? Sign Up"
+    /><img
+      class="group-1"
+      src="https://anima-uploads.s3.amazonaws.com/projects/6491b9b76aef5e22ae2569db/releases/6491baa71fd29090accc0529/img/group-1.png"
+      alt="Group 1"
+    />
+    <div class="group-2">
+      <img
+        class="usernameemail"
+        src="https://anima-uploads.s3.amazonaws.com/projects/6491b9b76aef5e22ae2569db/releases/6491baa71fd29090accc0529/img/username-email-1.png"
+        alt="Username/email"
+      />
+      <div class="user-container">
+        <img
+          class="mdiuser"
+          src="https://anima-uploads.s3.amazonaws.com/projects/6491b9b76aef5e22ae2569db/releases/6491baa71fd29090accc0529/img/mdi-user.png"
+          alt="mdi:user"
+        /><img
+          class="usernameemail-1"
+          src="https://anima-uploads.s3.amazonaws.com/projects/6491b9b76aef5e22ae2569db/releases/6491baa71fd29090accc0529/img/username-email.png"
+          alt="Username/email"
+        />
+      </div>
+    </div>
+    <div class="group-3">
+      <img
+        class="password"
+        src="https://anima-uploads.s3.amazonaws.com/projects/6491b9b76aef5e22ae2569db/releases/6491baa71fd29090accc0529/img/password.png"
+        alt="Password"
+      />
+      <div class="overlap-group1">
+        <img
+          class="pheye-fill"
+          src="https://anima-uploads.s3.amazonaws.com/projects/6491b9b76aef5e22ae2569db/releases/6491baa71fd29090accc0529/img/ph-eye-fill.png"
+          alt="ph:eye-fill"
+        /><img
+          class="password-1"
+          src="https://anima-uploads.s3.amazonaws.com/projects/6491b9b76aef5e22ae2569db/releases/6491baa71fd29090accc0529/img/password-1.png"
+          alt="Password"
+        />
+      </div>
+    </div>
+    <img
+      class="line-2"
+      src="https://anima-uploads.s3.amazonaws.com/projects/6491b9b76aef5e22ae2569db/releases/6491baa71fd29090accc0529/img/line-2.png"
+      alt="Line 2"
+    />
+    <div class="group-4">
+      <img
+        class="zondiconsshield"
+        src="https://anima-uploads.s3.amazonaws.com/projects/6491b9b76aef5e22ae2569db/releases/6491baa71fd29090accc0529/img/zondicons-shield.svg"
+        alt="zondicons:shield"
+      />
+      <h1 class="title">SINGER</h1>
+    </div>
+  </div>
+</div>
