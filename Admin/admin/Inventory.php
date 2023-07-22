@@ -23,67 +23,7 @@
                             </tr>
                         </thead>
 
-                        <?php
-
-//Get the Search Keyword
-if (isset($_POST['search'])) {
-    $search = $_POST['search'];
-
-
-
-    //SQL Query to Get foods based on search keyword
-    $sql = "SELECT * FROM inventor WHERE id LIKE '%$search%' OR title LIKE '%$search%' OR category_id LIKE '%$search%' ORDER BY id DESC";
-    // echo $search;
-
-    //Execute the Query
-    $res = mysqli_query($conn, $sql);
-
-    //Count rows 
-    $count = mysqli_num_rows($res);
-
-
-
-    if ($count > 0) {
-
-
-        //Item Available
-        while ($row = mysqli_fetch_assoc($res)) {
-            //Get the Values 
-            
-            $p_No = $row['p_No'];
-            $p_name = $row['p_name'];
-            $p_dis = $row['p_dis'];
-            $p_price = $row['p_price'];
-            $p_BarC = $row['p_BarC'];
-?>
-
-
-            <tr>
-                <td width="5%" class="text-center"><?php echo $row['p_No']; ?></td>
-            </tr><tr>
-                <td width="20%" class="text-center"><?php echo $row['Name']; ?></td>
-            </tr><tr>
-                <td width="5%" class="text-center"><?php echo $row['p_cost']; ?></td>
-            </tr><tr>
-                <td width="10%" class="text-center"><?php echo $row['p_price']; ?></td>
-            </tr><tr>
-                <td width="10%" class="text-center">
-                    <button class="btn-secondary1"><a href="./update-item.php?id=<?php echo $row["id"]; ?>"> UPDATE</a></button><br><br>
-                    <button class="btn-secondary2"><a href="./delete-item.php?id=<?php echo $row["id"]; ?>"> DELETE</a></button>
-                </td>
-            </tr>
-        <?php
-
-
-        }
-    } else {
-        //Categories not Available 
-        echo "<div><br><h4>Sorry! We were not able to find any products for your desired keywords!<br></h4>";
-        ?><br /><img src="284595933_1058817921714681_1560530709646485530_n.jpg" width="40%">
-</div>
 <?php
-    }
-} else {
     $sql = "SELECT * FROM inventor ORDER BY id DESC";
     //execute the query
     $conn = mysqli_connect('localhost','root','','dbos');
@@ -122,7 +62,7 @@ if (isset($_POST['search'])) {
         }
     } else {
     }
-}
+
 ?>
                         </tbody>
                     </table>

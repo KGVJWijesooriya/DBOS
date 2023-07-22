@@ -1,20 +1,37 @@
 <?php
+                        if(isset($_SESSION['login']))
+                        {
+                            echo $_SESSION['login'];
+                            unset($_SESSION['login']);
+                        }
+
+                        if(isset($_SESSION['no-login-message']))
+                        {
+                            echo $_SESSION['no-login-message'];
+                            unset($_SESSION['no-login-message']);
+                        }
+                    ?>
+<?php
 
 @include 'config.php';
 
-session_start();
+
 
 if(isset($_POST['submit'])){
 
-   $name = mysqli_real_escape_string($conn, $_POST['name']);
-   $email = mysqli_real_escape_string($conn, $_POST['email']);
-   $pass = md5($_POST['password']);
-   $cpass = md5($_POST['cpassword']);
-   $user_type = $_POST['user_type'];
+   //Check whether the Submit Button is Clicked or NOT
+    if(isset($_POST['submit']))
+    {
+        //process for login
+        //get the data from login from
+        echo $email = $_POST['email'];
+        echo $pass = md5($_POST['password']);
 
-   $select = " SELECT * FROM user_form WHERE email = '$email' && password = '$pass' ";
+    //check user name and password available
+    $select = "SELECT * FROM user_form WHERE email='$email' AND password='$pass' ";
 
-   $result = mysqli_query($conn, $select);
+        //Execute the Query
+        $result = mysqli_query($conn, $select);
 
    if(mysqli_num_rows($result) > 0){
 
@@ -28,7 +45,7 @@ if(isset($_POST['submit'])){
       }elseif($row['user_type'] == 'user'){
 
          $_SESSION['user_name'] = $row['name'];
-         header('location:user_page.php');
+         header('location:/DBOS/Admin/admin/index.php');
 
       }
      
@@ -36,8 +53,12 @@ if(isset($_POST['submit'])){
       $error[] = 'incorrect email or password!';
    }
 
+}
 };
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
