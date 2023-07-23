@@ -1,128 +1,77 @@
-let totalAmount = 0;
-let itemNo = 1;
+// Global variable to store the item details (replace with your data source)
+const itemsData = [
+  { barcode: "12345", name: "Item 1", serialNo: "SN001", unitPrice: 10.00 },
+  { barcode: "67890", name: "Item 2", serialNo: "SN002", unitPrice: 20.00 },
+  // Add more items as needed
+];
 
-// Function to update the row in the table
-function updateTableRow(row, item, price, quantity, itemTotal) {
-  const cells = row.cells;
-  cells[1].textContent = item;
-  cells[3].textContent = quantity;
-  cells[4].textContent = `$${price.toFixed(2)}`;
-  cells[5].textContent = `$${itemTotal.toFixed(2)}`;
-}
+function autoFillItemDetails() {
+  const barcodeNumber = document.getElementById("barcodeNumber").value;
+  const itemDetailsContainer = document.getElementById("itemDetails");
 
-// Function to add the item to the cart
-function addToCart() {
-  const customerName = document.getElementById("customerName").value;
-  const customerAddress = document.getElementById("customerAddress").value;
-  const item = document.getElementById("item").value;
-  const price = parseFloat(document.getElementById("price").value);
-  const quantity = parseInt(document.getElementById("quantity").value);
-  const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+  // If the barcode number is not empty, try to find the matched item
+  if (barcodeNumber.trim() !== "") {
+    const matchedItem = itemsData.find(item => item.barcode === barcodeNumber);
 
-  if (!customerName || !customerAddress || !item || isNaN(price) || isNaN(quantity)) {
-    alert("Please fill all the fields correctly.");
-    return;
-  }
-
-  const itemTotal = price * quantity;
-  totalAmount += itemTotal;
-
-  const receiptItems = document.getElementById("receipt-items");
-  const newItem = document.createElement("p");
-  newItem.textContent = `${item} x ${quantity} = $${itemTotal.toFixed(2)}`;
-  receiptItems.appendChild(newItem);
-
-  const totalElement = document.getElementById("total");
-  totalElement.textContent = totalAmount.toFixed(2);
-
-  // Reset input fields after adding to cart
-  document.getElementById("item").value = "";
-  document.getElementById("price").value = "";
-  document.getElementById("quantity").value = "";
-
-  // Add the purchase item to the table or update existing row
-  const purchaseItems = document.getElementById("purchase-items");
-  let newRow = null;
-
-  // Check if an existing row with the same item already exists in the table
-  const rows = purchaseItems.getElementsByTagName("tr");
-  for (let i = 0; i < rows.length; i++) {
-    const cells = rows[i].cells;
-    if (cells[1].textContent === item) {
-      newRow = rows[i];
-      break;
+    if (matchedItem) {
+      // Auto-fill table rows with the matched item details
+      const newRow = document.createElement("tr");
+      newRow.innerHTML = `
+        <td>${itemDetailsContainer.children.length + 1}</td>
+        <td>${matchedItem.name}</td>
+        <td>${matchedItem.serialNo}</td>
+        <td><input type="number" value="1" onchange="updatePrice(this)"></td>
+        <td>${matchedItem.unitPrice.toFixed(2)}</td>
+        <td>${matchedItem.unitPrice.toFixed(2)}</td>
+      `;
+      itemDetailsContainer.appendChild(newRow);
     }
   }
 
-  if (newRow === null) {
-    newRow = document.createElement("tr");
-    newRow.innerHTML = `
-      <td>${itemNo}</td>
-      <td>${item}</td>
-      <td>${generateSerialNo()}</td>
-      <td>${quantity}</td>
-      <td>$${price.toFixed(2)}</td>
-      <td>$${itemTotal.toFixed(2)}</td>
-    `;
-    purchaseItems.appendChild(newRow);
-    itemNo++;
-  } else {
-    // Update the existing row with new data
-    updateTableRow(newRow, item, price, quantity, itemTotal);
-  }
+  calculateTotal(); // Update total after adding the new row
 }
 
-function generateSerialNo() {
-  // This is just a simple example of generating a random serial number.
-  // In a real application, you might have a more sophisticated logic.
-  return Math.floor(Math.random() * 100000);
+function updatePrice(quantityInput) {
+  const row = quantityInput.parentNode.parentNode;
+  const quantity = parseInt(quantityInput.value);
+  const unitPrice = parseFloat(row.children[4].textContent);
+  const price = quantity * unitPrice;
+  row.children[5].textContent = price.toFixed(2);
+
+  calculateTotal(); // Update total after quantity change
 }
 
-function displayDateTime() {
-    const dateTimeContainer = document.getElementById('date-time');
-  
-    function updateDateTime() {
-      const currentDate = new Date();
-      const dateString = currentDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-      const timeString = currentDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-      const dateTimeString = `${dateString}, ${timeString}`;
-  
-      dateTimeContainer.innerText = `Date & Time: ${dateTimeString}`;
-    }
-  
-    // Update the date and time every second (1000 milliseconds)
-    setInterval(updateDateTime, 1000);
+function calculateTotal() {
+  // Calculate and update the total price
+  let total = 0;
+  const priceCells = document.querySelectorAll("#itemDetails td:nth-child(6)");
+
+  for (let i = 0; i < priceCells.length; i++) {
+    total += parseFloat(priceCells[i].textContent);
   }
-  
-  // Function to print the receipt
-  function printReceipt() {
-    window.print();
-  }
-  
-  // Function to save the receipt as a text file
-  function saveReceipt() {
-    const receiptText = document.getElementById('receipt-items').innerText;
-    const totalText = document.getElementById('total').innerText;
-  
-    // Create a Blob object with the receipt text
-    const blob = new Blob([`Receipt\n\n${receiptText}\nTotal: ${totalText}`], { type: 'text/plain' });
-  
-    // Create a URL for the Blob
-    const url = URL.createObjectURL(blob);
-  
-    // Create an anchor element to trigger the download
-    const anchor = document.createElement('a');
-    anchor.href = url;
-    anchor.download = 'receipt.txt';
-  
-    // Click the anchor to initiate the download
-    anchor.click();
-  
-    // Clean up by revoking the URL object
-    URL.revokeObjectURL(url);
-  }
-  
-  // Call the displayDateTime function when the document is ready
-  document.addEventListener('DOMContentLoaded', function() {
-    displayDateTime();
-  });
+
+  document.getElementById("total").textContent = total.toFixed(2);
+}
+
+function printReceipt() {
+  // Implement the logic to print the receipt
+  // You can use the browser's print functionality or any external library
+}
+
+function saveReceipt() {
+  // Implement the logic to save the receipt
+  // You can save the data to a database or generate a downloadable file
+}
+
+// Get the current date and time and display it in the "date-time" div
+function updateDateTime() {
+  const now = new Date();
+  const dateTimeContainer = document.getElementById("date-time");
+  dateTimeContainer.textContent = now.toLocaleString();
+}
+
+// Update the date and time every second
+setInterval(updateDateTime, 1000);
+
+// Initial update of date and time
+updateDateTime();
