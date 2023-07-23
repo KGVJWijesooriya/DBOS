@@ -19,20 +19,23 @@
     <h1>Business Name </h1>
 
     <div class="input-group">
-      <div class="input-label">Customer Details:</div>
+      <label for="customerDetails">Customer Details:</label>
       <div class="flex-wrap">
         <div class="flex-item">
-          <label for="customerName">Name:</label>
-          <input type="text" id="customerName" placeholder="Enter customer name">
+          <input type="text" id="customerName" placeholder="Customer Name">
         </div>
         <div class="flex-item">
-          <label for="customerAddress">Address:</label>
-          <input type="text" id="customerAddress" placeholder="Enter customer address">
+          <input type="text" id="customerAddress" placeholder="Customer Address">
         </div>
       </div>
     </div>
 
     <div class="input-group">
+      <label for="barcodeNumber">Barcode Number:</label>
+      <input type="text" id="barcodeNumber" placeholder="Enter Barcode Number" oninput="autoFillItemDetails()">
+    </div>
+
+    <!-- <div class="input-group">
       <div class="input-label">Item Details:</div>
       <div class="flex-wrap">
         <div class="flex-item">
@@ -48,7 +51,7 @@
           <input type="number" id="quantity" placeholder="Enter quantity">
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="input-group">
       <label>Payment Method:</label><br>
@@ -58,8 +61,8 @@
     </div>
 
     <div class="input-group">
-      <button onclick="addToCart()">Add to Cart</button>
-    </div>
+      <button id="addToCartButton">Add to Cart</button>
+    </div>    
 
     <div class="table-container">
       <table>
@@ -73,7 +76,9 @@
             <th>Price</th>
           </tr>
         </thead>
-        <tbody id="purchase-items"></tbody>
+        <tbody id="itemDetails">
+          <!-- Table rows will be auto-filled here -->
+        </tbody>
       </table>
     </div>
 
