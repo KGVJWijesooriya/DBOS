@@ -1,22 +1,10 @@
 <?php
 
-@include './config.php';
+@include 'login-check.php';
 
 ?>
 
-<?php
-                        if(isset($_SESSION['login']))
-                        {
-                            echo $_SESSION['login'];
-                            unset($_SESSION['login']);
-                        }
 
-                        if(isset($_SESSION['no-login-message']))
-                        {
-                            echo $_SESSION['no-login-message'];
-                            unset($_SESSION['no-login-message']);
-                        }
-                    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,6 +15,8 @@
     <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 </head>
 
 <body>
@@ -53,7 +43,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="coustomer.php">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -115,20 +105,13 @@
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
 
-                <div class="search">
-                    <label>
-                        <form action="post">
-                            <input name="search" class="stext" type="text" placeholder="Search here">
-                            <ion-icon name="search-outline"></ion-icon>
-                        </form>
-                    </label>
-                </div>
+
 
                 <div>
                     <P><?php echo $_SESSION['user_name'] ?></P>
-                <div class="user">
-                    <img src="assets/imgs/customer01.jpg" alt="">
-                </div>
+                    <div class="user">
+                        <img src="assets/imgs/customer01.jpg" alt="">
+                    </div>
                 </div>
             </div>
 
@@ -154,13 +137,13 @@
 
 
 
-            
-    <!-- =========== Scripts =========  -->
-    <script src="assets/js/main.js"></script>
 
-    <!-- ====== ionicons ======= -->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+            <!-- =========== Scripts =========  -->
+            <script src="assets/js/main.js"></script>
+
+            <!-- ====== ionicons ======= -->
+            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

@@ -1,16 +1,4 @@
-<?php
-                        if(isset($_SESSION['login']))
-                        {
-                            echo $_SESSION['login'];
-                            unset($_SESSION['login']);
-                        }
 
-                        if(isset($_SESSION['no-login-message']))
-                        {
-                            echo $_SESSION['no-login-message'];
-                            unset($_SESSION['no-login-message']);
-                        }
-                    ?>
 <?php
 
 @include 'config.php';
@@ -40,12 +28,13 @@ if(isset($_POST['submit'])){
       if($row['user_type'] == 'admin'){
 
          $_SESSION['admin_name'] = $row['name'];
-         header('location:admin_page.php');
+         $_SESSION['auth'] = true;
+         header('location:/DBOS/Admin/admin/index.php');
 
       }elseif($row['user_type'] == 'user'){
 
          $_SESSION['user_name'] = $row['name'];
-         header('location:/DBOS/Admin/admin/index.php');
+         header('location:/DBOS/Admin/Cashier/cashier.html');
 
       }
      

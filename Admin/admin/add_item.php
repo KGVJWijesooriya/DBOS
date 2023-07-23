@@ -44,7 +44,7 @@ if(isset($_POST['submit'])){
                         
                             <tr>
                                 <td>Product Number</td>
-                                <td><input class="itext" type="text" name="p_No" required placeholder="enter your Product Number"></td>
+                                <td><input class="itext" type="number" name="p_No" required placeholder="enter your Product Number"></td>
                             </tr>
 
                             <tr>    
