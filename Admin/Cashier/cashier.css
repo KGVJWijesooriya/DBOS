@@ -108,13 +108,21 @@ body {
     .flex-wrap {
       display: flex;
       flex-wrap: wrap;
+      margin-bottom: 30px; /* Add even more margin at the bottom of the flex container */
     }
   
     .flex-item {
-      flex: 0 0 100%;
+      flex: 0 0 calc(50% - 40px); /* Adjust the width as needed with more spacing */
+      margin-right: 20px; /* Add more margin between the input fields */
+      margin-bottom: 15px; /* Add more margin at the bottom of each input field */
+      padding: 0 10px; /* Add padding to the left and right sides */
+    }
+  
+    .flex-item:last-child {
+      margin-right: 0; /* Remove margin for the last input field in a row */
     }
   }
-  
+
   /* Custom styles for buttons */
   
   .receipt-buttons {
