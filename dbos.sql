@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 23, 2023 at 10:40 AM
+-- Generation Time: Jul 23, 2023 at 11:44 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.4
 
@@ -20,6 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `dbos`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer`
+--
+
+CREATE TABLE `customer` (
+  `id` int(255) NOT NULL,
+  `Name` varchar(255) NOT NULL,
+  `P_Number` int(255) NOT NULL,
+  `address` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`id`, `Name`, `P_Number`, `address`) VALUES
+(1, 'Zia Melton', 21, 'Nulla consectetur i'),
+(2, 'Keelie Levy', 17, 'Voluptatem recusanda'),
+(3, 'Maxwell Adams', 99, 'Mollit eaque archite'),
+(4, 'Evan England', 97, 'Fuga Molestias numq'),
+(5, 'Walker Randall', 97, 'Velit sed nisi venia'),
+(6, 'Shellie Avery', 63, 'Eum aliquip exercita');
 
 -- --------------------------------------------------------
 
@@ -95,6 +120,12 @@ INSERT INTO `user_form` (`id`, `name`, `email`, `password`, `user_type`) VALUES
 --
 
 --
+-- Indexes for table `customer`
+--
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `inventor`
 --
 ALTER TABLE `inventor`
@@ -117,6 +148,12 @@ ALTER TABLE `user_form`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `customer`
+--
+ALTER TABLE `customer`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `inventor`
