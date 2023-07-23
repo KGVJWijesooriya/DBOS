@@ -70,11 +70,11 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="vendor.php">
                         <span class="icon">
-                            <ion-icon name="settings-outline"></ion-icon>
+                        <ion-icon name="enter-outline"></ion-icon>
                         </span>
-                        <span class="title">Settings</span>
+                        <span class="title">Vendors</span>
                     </a>
                 </li>
 

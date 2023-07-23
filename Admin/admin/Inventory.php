@@ -40,8 +40,6 @@
                 if ($count > 0) {
                     while ($row = mysqli_fetch_assoc($res)) {
                         foreach ($row as $key => $val) {
-                            //generate output
-                            //echo $key . ": " . $val . "<BR />";
                         }
 
                         //display the value
