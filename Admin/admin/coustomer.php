@@ -4,26 +4,17 @@
 
 ?>
 
-<div class="search">
-    <label>
-        <form action="post">
-            <input name="search" class="stext" type="text" placeholder="Search here">
-            <ion-icon name="search-outline"></ion-icon>
-        </form>
-    </label>
-</div>
-
 <div class="details">
     <div class="recentOrders">
         <div class="cardHeader">
-            <h2>Inventory Items</h2>
+            <h2>Customers</h2>
             <a href="add_coustomer.php" class="btn">Add Customer</a>
         </div>
 
         <table>
 
             <div class="container mt-4">
-    <h6 class="mt-5"><b>Search Name</b></h6>
+    <h2 class="mt-5"><b>Search Name</b></h2>
     <div class="input-group mb-4 mt-3">
          <div class="form-outline">
             <input type="text" id="getName"/>
@@ -47,9 +38,10 @@
                 while($row = mysqli_fetch_assoc($query))
                 {
                   echo"<tr>";
-                   echo"<td><h6>".$row['id']."</h6></td></a>";
-                   echo"<td><h6>".$row['Name']."</h6></td>";
+                   echo"<td>".$row['id']."</td>";
+                   echo"<td>".$row['Name']."</td>";
                    echo"<td>".$row['P_Number']."</td>";
+                   echo"<td>".$row['address']."</td>";
                    echo"<td>".$row['address']."</td>";
                   echo"</tr>";   
                 }
