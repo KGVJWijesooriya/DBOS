@@ -27,7 +27,7 @@
             <?php
             $sql = "SELECT * FROM inventor ORDER BY id DESC";
             //execute the query
-            $conn = mysqli_connect('localhost', 'root', '', 'dbos');
+            // $conn = mysqli_connect('localhost', 'root', '', 'dbos');
             $res = mysqli_query($conn, $sql);
 
             //Check whether the query is executed of not
@@ -52,8 +52,9 @@
                             <td width="10%" class="text-center"><?php echo $row['Price']; ?></td>
                             <td width="10%" class="text-center"><?php echo $row['qty']; ?></td>
                             <td width="10%" class="text-center">
-                                <button class="btn-secondary1"><a href="./update-item.php?id=<?php echo $row["id"]; ?>"> UPDATE</a></button><br><br>
-                                <button class="btn-secondary2"><a href="./delete-item.php?id=<?php echo $row["id"]; ?>"> DELETE</a></button>
+                                <button> UPDATE</a></button><button> DELETE</a></button>
+                                <!-- <button class="btn-secondary1"><a href="./update-item.php?id=<?php echo $row["id"]; ?>"> UPDATE</a></button><br><br>
+                                <button class="btn-secondary2"><a href="./delete-item.php?id=<?php echo $row["id"]; ?>"> DELETE</a></button> -->
                             </td>
                         </tr>
             <?php

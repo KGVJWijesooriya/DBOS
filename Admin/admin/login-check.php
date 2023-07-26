@@ -2,8 +2,8 @@
 session_start();
 if (!$_SESSION['auth'])
 {
-    header('location:/DBOS/Admin/admin/index.php');
+    header('location:/DBOS/Admin/login.php');
 }
-//$conn = mysqli_connect('localhost','root','','dbos');
+
 include("../config.php");
 ?>

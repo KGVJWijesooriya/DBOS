@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Billing</title>
   <link rel="stylesheet" href="cashier.css">
 </head>
+
 <body>
-    <div class="container">
-        <!-- Navigation Bar -->
-        <div class="navbar">
-            <div class="cashier-profile">Cashier Name</div>
-            <ul class="nav-links">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Stock</a></li>
-              <!-- Add more navigation links as needed -->
-            </ul>
-          </div>
+  <div class="container">
+    <!-- Navigation Bar -->
+    <div class="navbar">
+      <div class="cashier-profile">Cashier Name</div>
+      <ul class="nav-links">
+        <li><a href="logout.php">Log Out</a></li>
+        <li><a href="cashier.php">Home</a></li>
+        <li><a href="inventory.php">Stock</a></li>
+        <!-- Add more navigation links as needed -->
+      </ul>
+    </div>
 
     <h1>Business Name </h1>
 
@@ -27,6 +30,7 @@
         <div class="flex-item">
           <input type="text" id="customerAddress" placeholder="Customer Address">
         </div>
+
       </div>
     </div>
 
@@ -34,24 +38,6 @@
       <label for="barcodeNumber">Barcode Number:</label>
       <input type="text" id="barcodeNumber" placeholder="Enter Barcode Number" oninput="autoFillItemDetails()">
     </div>
-
-    <!-- <div class="input-group">
-      <div class="input-label">Item Details:</div>
-      <div class="flex-wrap">
-        <div class="flex-item">
-          <label for="item">Name:</label>
-          <input type="text" id="item" placeholder="Enter item name">
-        </div>
-        <div class="flex-item">
-          <label for="price">Price:</label>
-          <input type="number" id="price" placeholder="Enter item price">
-        </div>
-        <div class="flex-item">
-          <label for="quantity">Quantity:</label>
-          <input type="number" id="quantity" placeholder="Enter quantity">
-        </div>
-      </div>
-    </div> -->
 
     <div class="input-group">
       <label>Payment Method:</label><br>
@@ -62,7 +48,7 @@
 
     <div class="input-group">
       <button id="addToCartButton">Add to Cart</button>
-    </div>    
+    </div>
 
     <div class="table-container">
       <table>
@@ -83,20 +69,21 @@
     </div>
 
     <div class="receipt">
-        <h2>Receipt</h2>
-        <div id="receipt-items"></div>
-        <p>Total: <span id="total">0.00</span></p>
-        <!-- Add a container for the real-time date and time -->
-        <div id="date-time"></div>
-  
-        <!-- Add the Print and Save buttons -->
-        <div class="receipt-buttons">
-          <button onclick="printReceipt()">Print</button>
-          <button onclick="saveReceipt()">Save</button>
-        </div>
+      <h2>Receipt</h2>
+      <div id="receipt-items"></div>
+      <p>Total: <span id="total">0.00</span></p>
+      <!-- Add a container for the real-time date and time -->
+      <div id="date-time"></div>
+
+      <!-- Add the Print and Save buttons -->
+      <div class="receipt-buttons">
+        <button onclick="printReceipt()">Print</button>
+        <button onclick="saveReceipt()">Save</button>
       </div>
     </div>
-  
-    <script src="cashier.js"></script>
-  </body>
-  </html>
+  </div>
+
+  <script src="cashier.js"></script>
+</body>
+
+</html>

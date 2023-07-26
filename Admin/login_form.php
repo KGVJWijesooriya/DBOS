@@ -1,49 +1,44 @@
-
 <?php
 
 @include 'config.php';
 
 
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
 
    //Check whether the Submit Button is Clicked or NOT
-    if(isset($_POST['submit']))
-    {
-        //process for login
-        //get the data from login from
-        echo $email = $_POST['email'];
-        echo $pass = md5($_POST['password']);
+   if (isset($_POST['submit'])) {
+      //process for login
+      //get the data from login from
+      $email = $_POST['email'];
+      $pass = md5($_POST['password']);
 
-    //check user name and password available
-    $select = "SELECT * FROM user_form WHERE email='$email' AND password='$pass' ";
+      //check user name and password available
+      $select = "SELECT * FROM user_form WHERE email='$email' AND password='$pass' ";
 
-        //Execute the Query
-        $result = mysqli_query($conn, $select);
+      //Execute the Query
+      $result = mysqli_query($conn, $select);
 
-   if(mysqli_num_rows($result) > 0){
+      if (mysqli_num_rows($result) > 0) {
 
-      $row = mysqli_fetch_array($result);
+         $row = mysqli_fetch_array($result);
 
-      if($row['user_type'] == 'admin'){
+         if ($row['user_type'] == 'admin') {
 
-         $_SESSION['admin_name'] = $row['name'];
-         $_SESSION['auth'] = true;
-         header('location:/DBOS/Admin/admin/index.php');
+            session_start();
+            $_SESSION['admin_name'] = $row['name'];
+            $_SESSION['auth'] = true;
+            header('location:/DBOS/Admin/admin/index.php');
+         } elseif ($row['user_type'] == 'user') {
 
-      }elseif($row['user_type'] == 'user'){
-
-         $_SESSION['user_name'] = $row['name'];
-         $_SESSION['autha'] = true;
-         header('location:/DBOS/Admin/Cashier/cashier.html');
-
+            $_SESSION['user_name'] = $row['name'];
+            $_SESSION['autha'] = true;
+            header('location:/DBOS/Admin/Cashier/cashier.php');
+         }
+      } else {
+         $error[] = 'incorrect email or password!';
       }
-     
-   }else{
-      $error[] = 'incorrect email or password!';
    }
-
-}
 };
 ?>
 
@@ -52,6 +47,7 @@ if(isset($_POST['submit'])){
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -62,26 +58,28 @@ if(isset($_POST['submit'])){
    <link rel="stylesheet" href="CSS/style.css">
 
 </head>
+
 <body>
-   
-<div class="form-container">
 
-   <form action="" method="post">
-      <h3>login now</h3>
-      <?php
-      if(isset($error)){
-         foreach($error as $error){
-            echo '<span class="error-msg">'.$error.'</span>';
+   <div class="form-container">
+
+      <form action="" method="post">
+         <h3>login now</h3>
+         <?php
+         if (isset($error)) {
+            foreach ($error as $error) {
+               echo '<span class="error-msg">' . $error . '</span>';
+            };
          };
-      };
-      ?>
-      <input type="email" name="email" required placeholder="enter your email">
-      <input type="password" name="password" required placeholder="enter your password">
-      <input type="submit" name="submit" value="login now" class="form-btn">
-      <p>don't have an account? <a href="register_form.php">register now</a></p>
-   </form>
+         ?>
+         <input type="email" name="email" required placeholder="enter your email">
+         <input type="password" name="password" required placeholder="enter your password">
+         <input type="submit" name="submit" value="login now" class="form-btn">
+         <p>don't have an account? <a href="register_form.php">register now</a></p>
+      </form>
 
-</div>
+   </div>
 
 </body>
+
 </html>
