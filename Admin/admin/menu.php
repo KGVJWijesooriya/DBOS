@@ -66,20 +66,20 @@
                 </li>
 
                 <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="book-outline"></ion-icon>
-                        </span>
-                        <span class="title">Reports</span>
-                    </a>
-                </li>
-
-                <li>
                     <a href="vendor.php">
                         <span class="icon">
                             <ion-icon name="enter-outline"></ion-icon>
                         </span>
                         <span class="title">Vendors</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="book-outline"></ion-icon>
+                        </span>
+                        <span class="title">Reports</span>
                     </a>
                 </li>
 

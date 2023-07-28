@@ -85,23 +85,7 @@
 
 
   <!-- =========== Scripts =========  -->
-  <!-- <script>
-    $(document).ready(function() {
-      $('#getName').on("keyup", function() {
-        var getName = $(this).val();
-        $.ajax({
-          method: 'POST',
-          url: 'searchajax.php',
-          data: {
-            name: getName
-          },
-          success: function(response) {
-            $("#showdata").html(response);
-          }
-        });
-      });
-    });
-  </script> -->
+
 
   <script>
     $(document).ready(function() {
@@ -113,7 +97,7 @@
 
         $('#Name').val(Name);
         $('#P_Number').val(P_Number);
-        $('#address').val(address);   
+        $('#address').val(address);
         $('#userID').val(id);
         // $('#myModal').model('toggle');
       });
@@ -133,10 +117,28 @@
             id: id
           },
           success: function(response) {
-            $('#'+id).children('td[data-target=Name]').text(Name);
-            $('#'+id).children('td[data-target=P_Number]').text(P_Number);
-            $('#'+id).children('td[data-target=address]').text(address);
+            $('#' + id).children('td[data-target=Name]').text(Name);
+            $('#' + id).children('td[data-target=P_Number]').text(P_Number);
+            $('#' + id).children('td[data-target=address]').text(address);
             // $('#myModal').model('toggle');
+          }
+        });
+      });
+    });
+  </script>
+
+  <script>
+    $(document).ready(function() {
+      $('#getName').on("keyup", function() {
+        var getName = $(this).val();
+        $.ajax({
+          method: 'POST',
+          url: 'searchajax.php',
+          data: {
+            name: getName
+          },
+          success: function(response) {
+            $("#showdata").html(response);
           }
         });
       });

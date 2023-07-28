@@ -9,7 +9,7 @@ if(isset($_POST['Name'])){
     $address = $_POST['address'];
     $id = $_POST['id'];
 
-    $result = mysqli_query($conn, "UPDATE customer SET Name = '$Name', P_Number = '$P_Number', address = '$address' WHERE id = '$id'");
+    $result = mysqli_query($conn, "UPDATE vendor SET Name = '$Name', P_Number = '$P_Number', address = '$address' WHERE id = '$id'");
 
     if($result){
         return 'data update';
