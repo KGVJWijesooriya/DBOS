@@ -22,6 +22,11 @@
     <h1>Business Name </h1>
 
     <div class="input-group">
+      <label for="customerSerialNo">Customer Serial No:</label>
+      <input type="text" id="customerSerialNo" placeholder="Enter Customer Serial No" oninput="searchCustomer()">
+    </div>
+    
+    <div class="input-group">
       <label for="customerDetails">Customer Details:</label>
       <div class="flex-wrap">
         <div class="flex-item">
