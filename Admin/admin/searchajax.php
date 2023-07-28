@@ -11,4 +11,4 @@
        $data .=  "<tr><td>".$row['id']."</td><td>".$row['Name']."</td><td>".$row['P_Number']."</td><td>".$row['address']."</td></tr>";
    }
     echo $data;
- ?>
+?>
