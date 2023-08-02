@@ -8,7 +8,7 @@
     <div class="recentOrders">
         <div class="cardHeader">
             <h2>Inventory Items</h2>
-            <a href="add_item.php" class="btn">Add Stocks</a>
+            <a href="add_stocks.php" class="btn">Add Stocks</a>
             <a href="add_item.php" class="btn">New Item</a>
         </div>
         <div class="container mt-4">

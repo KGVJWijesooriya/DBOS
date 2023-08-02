@@ -3,7 +3,7 @@ include("../config.php");
 
 $name = $_POST['name'];
 
-$sql = "SELECT * FROM customer WHERE Name LIKE '$name%' OR P_Number LIKE '$name%'";
+$sql = "SELECT * FROM vendor WHERE Name LIKE '$name%' OR P_Number LIKE '$name%'";
 $query = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_assoc($query)) {?>
   <tr id=<?php echo $row['id']; ?>>

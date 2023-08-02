@@ -1,5 +1,5 @@
 <?php
-include("../config.php");
+include("login-check.php");
 ?>
 
 
@@ -17,7 +17,7 @@ include("../config.php");
   <div class="container">
     <!-- Navigation Bar -->
     <div class="navbar">
-      <div class="cashier-profile">Cashier Name</div>
+      <div class="cashier-profile">Cashier: <?php echo $_SESSION['user_name'] ?></div>
       <ul class="nav-links">
         <li><a href="logout.php">Log Out</a></li>
         <li><a href="cashier.php">Home</a></li>
@@ -28,7 +28,7 @@ include("../config.php");
 
     <h1>INVENTORY </h1>
 
-    <script src="cashier.js"></script>
+    <!-- <script src="cashier.js"></script> -->
 
     <div class="container mt-4">
       <h2 class="mt-5"><b>Search Item</b></h2>

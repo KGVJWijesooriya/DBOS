@@ -1,9 +1,11 @@
 <?php
-session_start();
+include("../config.php");
+
+// session_start();
 if (!$_SESSION['autha'])
 {
-    // header('location:/DBOS/Admin/Cashier/cashier.php');
+    header('location:/DBOS/Admin/login.php');
 }
-// $conn = mysqli_connect('localhost','root','','dbos');
-include("../config.php");
+
+
 ?>

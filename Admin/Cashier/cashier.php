@@ -1,3 +1,7 @@
+<?php
+include("login-check.php");
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -10,7 +14,7 @@
   <div class="container">
     <!-- Navigation Bar -->
     <div class="navbar">
-      <div class="cashier-profile">Cashier Name</div>
+    <div class="cashier-profile">Cashier: <?php echo $_SESSION['user_name'] ?></div>
       <ul class="nav-links">
         <li><a href="logout.php">Log Out</a></li>
         <li><a href="cashier.php">Home</a></li>
@@ -88,7 +92,7 @@
     </div>
   </div>
 
-  <script src="cashier.js"></script>
+  <!-- <script src="cashier.js"></script> -->
 </body>
 
 </html>

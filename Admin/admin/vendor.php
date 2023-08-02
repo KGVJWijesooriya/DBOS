@@ -133,7 +133,7 @@
         var getName = $(this).val();
         $.ajax({
           method: 'POST',
-          url: 'searchvendor.php',
+          url: 'search_vender.php',
           data: {
             name: getName
           },
