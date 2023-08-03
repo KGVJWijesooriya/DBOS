@@ -11,14 +11,14 @@
             <a href="add_stocks.php" class="btn">Add Stocks</a>
             <a href="add_item.php" class="btn">New Item</a>
         </div>
-        <div class="container mt-4">
+        <div class="mt-4">
             <h2 class="mt-5"><b>Search Name</b></h2>
             <div class="input-group mb-4 mt-3">
                 <div class="form-outline">
                     <input type="text" id="getName" />
                 </div>
             </div>
-            <table>
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <td>Product No</td>
@@ -138,12 +138,7 @@
             });
         });
     </script>
-    <script src="assets/js/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-
-    <!-- ====== ionicons ======= -->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     </body>
-
-    </html>
+    <?php
+    @include 'footer.php';
+    ?>

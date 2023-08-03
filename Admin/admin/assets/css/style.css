@@ -7,6 +7,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 :root {
@@ -280,14 +281,14 @@ body {
   width: 100%;
   padding: 20px;
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  /* grid-template-columns: 2fr 1fr; */
   grid-gap: 30px;
   /* margin-top: 10px; */
 }
 
 .details .recentOrders {
   position: relative;
-  display: grid;
+  /* display: grid; */
   min-height: 500px;
   background: var(--white);
   padding: 20px;
@@ -492,3 +493,21 @@ width: 100%;
     outline: none;
     font-size: 16px;
   }  
+
+  table {
+    counter-reset: section;
+  }
+
+  .count:before {
+    counter-increment: section;
+    content: counter(section);
+  }
+
+.tota {
+  background: transparent;
+  border: none;
+  text-align: right;
+  font-size: 30px;
+  border: 0;
+  outline: 0;
+}

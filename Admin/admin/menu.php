@@ -20,6 +20,10 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.1.js" integrity="sha256-VuhDpmsr9xiKwvTIHfYWCIQ84US9WqZsLfR4P7qF6O8=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css" />
 
 
 </head>
@@ -129,17 +133,18 @@
 
 
                 <div>
-                    <tr>
-                        <td>
-                            <div class="user"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                        </td>
-                        <td>
-                            <P><?php echo $_SESSION['admin_name'] ?></P>
-                        </td>
-                    </tr>
+                    <div class="d-flex text-black">
+                        <div>
+                            <img src="assets/imgs/customer02.jpg" alt="" class="img-fluid" style="width: 50px; border-radius: 10px;">
+                        </div>
+                        <div class="flex-grow-1 ms-3" style="padding-left: 20px ;">
+                            <h5 class="mb-1"><?php echo $_SESSION['admin_name'] ?></h5>
+                            <p class="mb-2 pb-1">Admin</p>
+
+                        </div>
+                    </div>
                 </div>
             </div>
-
 
             <!-- =========== Scripts =========  -->
             <script src="assets/js/main.js"></script>
@@ -156,16 +161,16 @@
                         sec = now.getSeconds(),
                         pe = "AM";
 
-                    if(hou == 0){
+                    if (hou == 0) {
                         hou = 12;
                     }
-                    if(hou > 12){
+                    if (hou > 12) {
                         hou = hou - 12
                         pe = "PM";
                     }
 
-                    Number.prototype.pad = function(digits){
-                        for(var n = this.toString(); n.length < digits; n = 0 + n);
+                    Number.prototype.pad = function(digits) {
+                        for (var n = this.toString(); n.length < digits; n = 0 + n);
                         return n;
                     }
 
@@ -173,14 +178,14 @@
                     var week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
                     var ids = ["dayname", "month", "daynum", "year", "hour", "minutes", "seconds", "period"];
                     var values = [week[dname], months[mo], dnum.pad(2), yr, hou.pad(2), min.pad(2), sec.pad(2), pe];
-                    for(var i = 0; i< ids.length; i++)
-                    document.getElementById(ids[i]).firstChild.nodeValue = values[i];
+                    for (var i = 0; i < ids.length; i++)
+                        document.getElementById(ids[i]).firstChild.nodeValue = values[i];
 
                 }
 
-                function initClock(){
+                function initClock() {
                     updateClock();
-                    window.setInterval("updateClock()",1);
+                    window.setInterval("updateClock()", 1);
                 }
             </script>
 
