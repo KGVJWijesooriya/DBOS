@@ -3,7 +3,7 @@
   
    $name = $_POST['name'];
   
-   $sql = "SELECT * FROM inventor WHERE Name LIKE '%$name%'";  
+   $sql = "SELECT * FROM inventor WHERE Name OR p_No LIKE '%$name%'";  
    $query = mysqli_query($conn,$sql);
    $data='';
    while($row = mysqli_fetch_assoc($query))

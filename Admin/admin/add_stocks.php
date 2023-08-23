@@ -13,8 +13,8 @@
             <form>
                 <div class="form-row">
                     <div class="col-4">
-                        <!-- <input ype="text" name="search" id="search" class="form-control" placeholder="Vendor Name" autocomplete="off" required><br> -->
-                        <select name="car_brand" data-live-search="true" id="car_brand" class="form-control" title="Select Car Brand"> </select> <br>
+                        <!-- <input type="hidden" name="search" id="search" class="form-control" placeholder="Vendor Name" autocomplete="off" required><br> -->
+                        <select name="Vender_Name" data-live-search="true" id="Vender_Name" class="form-control" title="Select Vender Name"> </select> <br>
                     </div>
                     <!-- <div>
                         <input type="number" class="form-control" placeholder="Vender Phone Number"  >
@@ -42,23 +42,25 @@
                         <td>Amount</td>
                     </tr>
                 </thead>
-                <tbody id="tbl">
-                    <tr>
-                        <td class="count"></td>
-                        <td>
-                            <input type="text" name="search" id="search" class="form-control" placeholder="Enter Product Name or Barcode" autocomplete="off" required>
-                        </td>
-                        <td>
-                            <input type="number" class="form-control" name="qty" onchange="Calc(this);">
-                        </td>
-                        <td>
-                            <input type="number" class="form-control" name="cost" onchange="Calc(this);">
-                        </td>
-                        <td>
-                            <input type="number" class="form-control" name="amount">
-                        </td>
-                    </tr>
-                </tbody>
+                <form>
+                    <tbody id="tbl">
+                        <tr>
+                            <td class="count"></td>
+                            <td class="col-4">
+                                <select name="Product_box" id="Product_box" class="form-control " data-live-search="true" title="Select Product Name"></select>
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" name="qty" onchange="Calc(this);">
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" name="cost" onchange="Calc(this);">
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" name="amount">
+                            </td>
+                        </tr>
+                    </tbody>
+                </form>
             </table>
             <div class="float-right">
                 <h4 class="float-right">Total</h4><br>
@@ -70,13 +72,15 @@
     </div>
 </div>
 
+
 <script>
-    $('document').ready(function() {
-        $('.add_another').click(function() {
-            $("#tbl").append('<tr><td class="count"></td><td><input type="text" name="search" id="search" class="form-control" placeholder="Enter Product Name or Barcode" autocomplete="off" required></td><td><input type="number" class="form-control" name="qty" onchange="Calc(this);"></td><td><input type="number" class="form-control" name="cost" onchange="Calc(this);"></td><td><input type="number" class="form-control" name="amount"></td></tr>');
-        });
-    })
+    // $('document').ready(function() {
+    //     $('.add_another').click(function() {
+    //         $("#tbl").append('<tr><td class="count"></td><td><input type="text" name="search" id="search" class="form-control" placeholder="Enter Product Name or Barcode" autocomplete="off" required></td><td><input type="number" class="form-control" name="qty" onchange="Calc(this);"></td><td><input type="number" class="form-control" name="cost" onchange="Calc(this);"></td><td><input type="number" class="form-control" name="amount"></td></tr>');
+    //     });
+    // })
 </script>
+<!-- Calculation -->
 <script>
     function Calc(v) {
         var index = $(v).parent().parent().index();
@@ -106,13 +110,13 @@
 
 <script>
     $(document).ready(function() {
-        $("#car_brand").selectpicker();
+        $("#Vender_Name").selectpicker();
 
-        load_data("carData");
+        load_data("VendorData");
 
         function load_data(type = "") {
             $.ajax({
-                url: "fetch.php",
+                url: "fetch_P.php",
                 method: "POST",
                 data: {
                     type: type,
@@ -121,16 +125,47 @@
                 success: function(data) {
                     var html = "";
                     for (var count = 0; count < data.length; count++) {
-                        html += '<option value="' + data[count].id + '">' + data[count].name + "</option>";
+                        html += '<option value="' + data[count].id + '">' + data[count].name + ' (ID: ' + data[count].id + ')</option>';
 
-                        $("#car_brand").html(html);
-                        $("#car_brand").selectpicker("refresh");
+                        $("#Vender_Name").html(html);
+                        $("#Vender_Name").selectpicker("refresh");
                     }
                 },
             });
         }
     });
+
+
+// Product Data
+
+$(document).ready(function() {
+    $("#Product_box").selectpicker();
+
+    load_data("ProductData"); // Change the type to "ProductData"
+
+    function load_data(type = "") {
+        $.ajax({
+            url: "fetch.php", // Change the URL to the correct PHP file
+            method: "POST",
+            data: {
+                type: type,
+            },
+            dataType: "json",
+            success: function(data) {
+                var html = "";
+                for (var count = 0; count < data.length; count++) {
+                    html += '<option value="' + data[count].id + '">' + data[count].name + ' (ID: ' + data[count].id + ')</option>';
+                }
+                $("#Product_box").html(html);
+                $("#Product_box").selectpicker("refresh");
+            },
+        });
+    }
+});
+
 </script>
+
+
 
 
 <?php
