@@ -1,3 +1,4 @@
+
 <?php
 
 @include 'config.php';
@@ -27,12 +28,14 @@ if(isset($_POST['submit'])){
       if($row['user_type'] == 'admin'){
 
          $_SESSION['admin_name'] = $row['name'];
-         header('location:admin_page.php');
+         $_SESSION['auth'] = true;
+         header('location:/DBOS/Admin/admin/index.php');
 
       }elseif($row['user_type'] == 'user'){
 
          $_SESSION['user_name'] = $row['name'];
-         header('location:/DBOS/Admin/admin/index.php');
+         $_SESSION['autha'] = true;
+         header('location:/DBOS/Admin/Cashier/cashier.html');
 
       }
      
@@ -43,6 +46,9 @@ if(isset($_POST['submit'])){
 }
 };
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
