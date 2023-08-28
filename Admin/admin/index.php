@@ -7,10 +7,27 @@
             <!-- ======================= Cards ================== -->
             <div class="cardBox">
                 <div class="card">
-                    <div>
-                        <div class="numbers">1,504</div>
-                        <div class="cardName">Daily Views</div>
-                    </div>
+                <?php
+
+// Query to get customer count
+$sql = "SELECT COUNT(*) AS customer_count FROM customer";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $customerCount = $row["customer_count"];
+} else {
+    $customerCount = 0;
+}
+
+$conn->close();
+?>
+
+<div>
+    <div class="numbers"><?php echo $customerCount; ?></div>
+    <div class="cardName">Customer Count</div>
+</div>
+
 
                     <div class="iconBx">
                         <ion-icon name="eye-outline"></ion-icon>

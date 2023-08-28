@@ -34,10 +34,10 @@ include("login-check.php");
 
     <h1>Business Name </h1>
 
-    <div class="input-group">
+    <!--<div class="input-group">
       <label for="customerSerialNo">Customer Serial No:</label>
       <input type="text" id="customerSerialNo" placeholder="Enter Customer Serial No" oninput="searchCustomer()">
-    </div>
+    </div> -->
 
     <div class="input-group">
       <label for="customerDetails">Customer Details:</label>
@@ -55,8 +55,9 @@ include("login-check.php");
 
     <div class="input-group">
       <label for="barcodeNumber">Barcode Number:</label>
-      <input type="text" id="barcodeNumber" placeholder="Enter Barcode Number" oninput="autoFillItemDetails()">
+      <input type="text" id="barcodeNumber" placeholder="Enter Barcode Number" oninput="fetchItemDetails()">
     </div>
+
 
     <div class="input-group">
       <label>Payment Method:</label><br>
@@ -141,7 +142,30 @@ include("login-check.php");
   });
 </script>
 
+<script>
+  function fetchItemDetails() {
+  var barcode = $("#barcodeNumber").val(); // Get the entered barcode number
 
+  $.ajax({
+    url: "fetch_item_details.php", // PHP script to fetch item details
+    method: "POST",
+    data: {
+      barcode: barcode
+    },
+    dataType: "json",
+    success: function(data) {
+      // Populate item details fields using fetched data
+      $("#itemName").val(data.itemName); // Assuming you have an input for item name
+      $("#unitPrice").val(data.unitPrice); // Assuming you have an input for unit price
+      // Populate other fields as needed
+    },
+    error: function() {
+      console.log("Error fetching item details");
+    }
+  });
+}
+</script>
+  
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
