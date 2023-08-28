@@ -46,9 +46,9 @@ include("login-check.php");
           <!-- <input type="text" id="customerName" placeholder="Customer Name"> -->
           <select name="customer_Name" data-live-search="true" id="customer_Name" class="form-control" title="Select Customer Name"> </select>
         </div>
-        <div class="flex-item">
+        <!--<div class="flex-item">
           <input type="text" name="customerAddress" id="customerAddress" placeholder="Customer Address" value="">
-        </div>
+        </div> -->
 
       </div>
     </div>
