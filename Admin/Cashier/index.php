@@ -1,41 +1,44 @@
+<?php
+require_once "db.php";
+
+$customerSerialNo = $_GET['serialNo'] ?? '';
+
+if ($customerSerialNo !== '') {
+    $sql = "SELECT * FROM customers WHERE serial_no = '$customerSerialNo'";
+    $result = $conn->query($sql);
+    $customerData = $result->fetch_assoc();
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Billing</title>
-  <link rel="stylesheet" href="cashier.css">
+    <title>Billing</title>
+    <link rel="stylesheet" href="cashier.css">
 </head>
 <body>
     <div class="container">
-        <!-- Navigation Bar -->
-        <div class="navbar">
-            <div class="cashier-profile">Cashier Name</div>
-            <ul class="nav-links">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Stock</a></li>
-              <!-- Add more navigation links as needed -->
-            </ul>
-          </div>
+        <!-- Your existing HTML code here -->
 
-    <h1>Business Name </h1>
-
-    <div class="input-group">
-      <label for="customerSerialNo">Customer Serial No:</label>
-      <input type="text" id="customerSerialNo" placeholder="Enter Customer Serial No" oninput="searchCustomer()">
-    </div>
-
-    <div class="input-group">
-      <label for="customerDetails">Customer Details:</label>
-      <div class="flex-wrap">
-        <div class="flex-item">
-          <input type="text" id="customerName" placeholder="Customer Name">
+        <div class="input-group">
+            <label for="customerSerialNo">Customer Serial No:</label>
+            <input type="text" id="customerSerialNo" placeholder="Enter Customer Serial No" oninput="searchCustomer()">
         </div>
-        <div class="flex-item">
-          <input type="text" id="customerAddress" placeholder="Customer Address">
-        </div>
-      </div>
-    </div>
 
-    <div class="input-group">
+        <!-- Populate customer details if available -->
+        <div class="input-group">
+            <label for="customerDetails">Customer Details:</label>
+            <div class="flex-wrap">
+                <div class="flex-item">
+                    <input type="text" id="customerName" placeholder="Customer Name" value="<?= $customerData['name'] ?? '' ?>">
+                </div>
+                <div class="flex-item">
+                    <input type="text" id="customerAddress" placeholder="Customer Address" value="<?= $customerData['address'] ?? '' ?>">
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group">
       <label for="barcodeNumber">Barcode Number:</label>
       <input type="text" id="barcodeNumber" placeholder="Enter Barcode Number" oninput="autoFillItemDetails()">
     </div>
@@ -105,3 +108,8 @@
     <script src="cashier.js"></script>
   </body>
   </html>
+
+
+<?php
+$conn->close();
+?>

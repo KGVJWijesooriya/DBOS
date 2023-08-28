@@ -5,6 +5,14 @@ const itemsData = [
   // Add more items as needed
 ];
 
+// Global variable to store customer data
+const customersData = [
+  { customerId: "001", name: "John Doe", address: "123 Main St, City A" },
+  { customerId: "CUST002", name: "Jane Smith", address: "456 Oak Ave, City B" },
+  // Add more customers as needed
+];
+
+
 function autoFillItemDetails() {
   const barcodeNumber = document.getElementById("barcodeNumber").value;
   const itemDetailsContainer = document.getElementById("itemDetails");
@@ -68,6 +76,31 @@ function updateDateTime() {
   const now = new Date();
   const dateTimeContainer = document.getElementById("date-time");
   dateTimeContainer.textContent = now.toLocaleString();
+}
+
+function searchCustomer() {
+  const customerSerialNo = document.getElementById("customerSerialNo").value;
+  const customerNameInput = document.getElementById("customerName");
+  const customerAddressInput = document.getElementById("customerAddress");
+
+  // If the customer serial number is not empty, try to find the matched customer
+  if (customerSerialNo.trim() !== "") {
+    const matchedCustomer = customersData.find(customer => customer.customerId === customerSerialNo);
+
+    if (matchedCustomer) {
+      // Update the customer name and address inputs with the matched customer details
+      customerNameInput.value = matchedCustomer.name;
+      customerAddressInput.value = matchedCustomer.address || ""; // If "address" property is not available, set it to an empty string
+    } else {
+      // If no matching customer is found, clear the customer name and address inputs
+      customerNameInput.value = "";
+      customerAddressInput.value = "";
+    }
+  } else {
+    // If the customer serial number is empty, clear the customer name and address inputs
+    customerNameInput.value = "";
+    customerAddressInput.value = "";
+  }
 }
 
 // Update the date and time every second
